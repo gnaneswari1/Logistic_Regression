@@ -1,0 +1,27 @@
+LOGISTIC REGRESSION
+
+
+from sklearn.linear_model import LogisticRegression
+# Train the logistic regression model
+lr = LogisticRegression(max_iter=1000)
+lr.fit(X_train, y_train)
+# Make predictions on the test set
+y_pred = lr.predict(X_test)
+from sklearn.metrics import classification_report, confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+print('Accuracy:', accuracy_score(y_test, y_pred))
+# Print classification report
+print("Classification Report:")
+print(classification_report(y_test, y_pred))
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(df['url'])
+y = df['is_spam']
+
+# Save the fitted vectorizer
+dump(vectorizer, 'tfidf_vectorizer.joblib')
+from joblib import dump
+
+# Save the trained model to a file
+dump(lr, 'Log_reg.joblib')
